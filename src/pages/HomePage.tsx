@@ -15,9 +15,6 @@ import {
   whyChoose,
 } from '@/data/site'
 
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2400&q=80'
-
 const WHY_IMAGE =
   'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1400&q=80'
 
@@ -28,32 +25,26 @@ export function HomePage() {
     <>
       {/* Hero */}
       <section className="relative isolate min-h-[min(92svh,880px)] overflow-hidden bg-forest-950">
-        <HeroBackground imageSrc={HERO_IMAGE} />
+        <HeroBackground />
 
         <div className="relative mx-auto grid min-h-[min(92svh,880px)] max-w-6xl items-center gap-10 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8 lg:py-24">
           <div className="max-w-xl">
-            <img
-              src="/logo.jpeg"
-              alt={site.name}
-              className="hero-logo h-16 w-auto rounded-lg object-contain sm:h-20"
-            />
-
-            <p className="animate-fade-up animate-delay-1 mt-5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-sun-400 sm:text-xs">
+            <p className="animate-fade-up text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-sun-400 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] sm:text-xs">
               {site.fullName}
-              <span className="mx-2 text-sun-400/40">·</span>
+              <span className="mx-2 text-sun-400/50">·</span>
               {site.tagline}
             </p>
 
-            <h1 className="animate-fade-up animate-delay-2 mt-5 font-display text-[clamp(1.85rem,4.2vw,2.85rem)] font-bold leading-[1.1] tracking-tight text-balance text-white">
+            <h1 className="animate-fade-up animate-delay-1 mt-5 font-display text-[clamp(1.85rem,4.2vw,2.85rem)] font-bold leading-[1.1] tracking-tight text-balance text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]">
               Powering Your Home & Business With Solar Energy
             </h1>
 
-            <p className="animate-fade-up animate-delay-3 mt-5 max-w-lg text-base leading-relaxed text-forest-100/95 sm:text-lg">
+            <p className="animate-fade-up animate-delay-2 mt-5 max-w-lg text-base leading-relaxed text-white/95 drop-shadow-[0_1px_10px_rgba(0,0,0,0.5)] sm:text-lg">
               Complete rooftop solar across Vidarbha. Reduce your electricity
               bill with reliable, high-quality systems — design to net metering.
             </p>
 
-            <div className="animate-fade-up animate-delay-4 mt-8 flex flex-wrap items-center gap-3">
+            <div className="animate-fade-up animate-delay-3 mt-8 flex flex-wrap items-center gap-3">
               <RouterLinkButton
                 to="/contact"
                 variant="sun"
@@ -62,15 +53,6 @@ export function HomePage() {
               >
                 Book Free Site Visit
               </RouterLinkButton>
-              <LinkButton
-                href={site.whatsapp.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                size="lg"
-                className="border border-white/25 bg-white/10 text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-white/45 hover:bg-white/18"
-              >
-                WhatsApp Us
-              </LinkButton>
             </div>
           </div>
 
@@ -83,21 +65,21 @@ export function HomePage() {
       {/* Trust metrics */}
       <section className="relative border-b border-line bg-white">
         <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-sun-500 to-transparent" />
-        <div className="mx-auto grid max-w-6xl sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, i) => (
             <Reveal
               key={item.label}
               delay={i * 80}
-              className="border-b border-line sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:[&:nth-child(4n)]:border-r-0"
+              className="border-b border-line [&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:[&:nth-child(4n)]:border-r-0"
             >
-              <div className="group px-6 py-9 transition-colors hover:bg-forest-50/80 sm:px-8">
-                <p className="font-display text-4xl font-bold tracking-tight text-forest-900 transition-transform duration-300 group-hover:-translate-y-0.5">
+              <div className="group px-4 py-6 transition-colors hover:bg-forest-50/80 sm:px-8 sm:py-9">
+                <p className="font-display text-3xl font-bold tracking-tight text-forest-900 transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-4xl">
                   {item.value}
                 </p>
-                <p className="mt-2 text-sm font-semibold tracking-wide text-forest-800">
+                <p className="mt-1.5 text-xs font-semibold tracking-wide text-forest-800 sm:mt-2 sm:text-sm">
                   {item.label}
                 </p>
-                <p className="mt-1 text-sm text-muted">{item.detail}</p>
+                <p className="mt-0.5 text-xs text-muted sm:mt-1 sm:text-sm">{item.detail}</p>
               </div>
             </Reveal>
           ))}

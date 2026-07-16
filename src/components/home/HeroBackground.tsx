@@ -1,43 +1,68 @@
 import type { CSSProperties } from 'react'
 
-/** Animated layers for the home hero background */
-export function HeroBackground({ imageSrc }: { imageSrc: string }) {
+type HeroBackgroundProps = {
+  /** Optional poster/fallback image while video loads */
+  posterSrc?: string
+  videoSrc?: string
+}
+
+/** Bright, clear video background for the home hero */
+export function HeroBackground({
+  videoSrc = '/background.mp4',
+  posterSrc = 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2400&q=80',
+}: HeroBackgroundProps) {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
       <img
-        src={imageSrc}
+        src={posterSrc}
         alt=""
-        className="hero-bg-image absolute inset-0 h-full w-full object-cover"
-        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/90 to-forest-950/30" />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/20 to-forest-950/55" />
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-900/40 via-transparent to-transparent" />
+      <video
+        className="hero-bg-video absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={posterSrc}
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
 
-      <div className="hero-sun-orb absolute -right-[8%] top-[8%] h-[min(55vw,420px)] w-[min(55vw,420px)] rounded-full" />
-      <div className="hero-sun-orb-2 absolute right-[18%] top-[22%] h-40 w-40 rounded-full sm:h-56 sm:w-56" />
-      <div className="hero-light-sweep absolute inset-0" />
+      {/* Light overlays — keep video bright & clear, slight shade only for text */}
+      <div className="absolute inset-0 bg-gradient-to-r from-forest-950/55 via-forest-950/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/50 via-transparent to-black/10" />
 
-      <div className="hero-particles absolute inset-0">
-        {Array.from({ length: 14 }).map((_, i) => (
+      {/* Soft warm lift */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 60% at 70% 35%, rgba(255,220,140,0.22), transparent 60%)',
+        }}
+      />
+
+      <div className="hero-light-sweep absolute inset-0 opacity-60" />
+
+      <div className="hero-particles absolute inset-0 opacity-70">
+        {Array.from({ length: 8 }).map((_, i) => (
           <span
             key={i}
             className="hero-particle absolute rounded-full bg-sun-400"
             style={
               {
-                '--x': `${8 + ((i * 17) % 84)}%`,
-                '--size': `${2 + (i % 4)}px`,
-                '--dur': `${7 + (i % 6) * 1.4}s`,
-                '--delay': `${(i % 8) * 0.55}s`,
-                '--drift': `${12 + (i % 5) * 8}px`,
+                '--x': `${10 + ((i * 19) % 80)}%`,
+                '--size': `${2 + (i % 2)}px`,
+                '--dur': `${9 + (i % 4) * 1.4}s`,
+                '--delay': `${(i % 6) * 0.7}s`,
+                '--drift': `${8 + (i % 4) * 6}px`,
               } as CSSProperties
             }
           />
         ))}
       </div>
-
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,transparent_0%,rgba(17,28,22,0.45)_100%)]" />
     </div>
   )
 }

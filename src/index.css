@@ -66,6 +66,14 @@
     will-change: transform;
   }
 
+  .hero-bg-video {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    filter: brightness(1.12) contrast(1.06) saturate(1.08);
+  }
+
   .hero-sun-orb {
     background: radial-gradient(
       circle,
@@ -113,6 +121,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .hero-bg-image,
+    .hero-bg-video,
     .hero-sun-orb,
     .hero-sun-orb-2,
     .hero-light-sweep,
@@ -122,6 +131,10 @@
 
     .hero-bg-image {
       transform: scale(1.04);
+    }
+
+    .hero-bg-video {
+      display: none;
     }
 
     .hero-particle {

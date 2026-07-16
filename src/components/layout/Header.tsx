@@ -54,23 +54,34 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">
-          {navLinks.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              end={item.href === '/'}
-              className={({ isActive }) =>
-                cn(
-                  'rounded-md px-2.5 py-2 text-[0.8125rem] font-medium transition-colors',
-                  isActive
-                    ? 'bg-forest-100 text-forest-900'
-                    : 'text-muted hover:bg-forest-50 hover:text-forest-900',
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          {navLinks.map((item) =>
+            item.enabled ? (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                end={item.href === '/'}
+                className={({ isActive }) =>
+                  cn(
+                    'rounded-md px-2.5 py-2 text-[0.8125rem] font-medium transition-colors',
+                    isActive
+                      ? 'bg-forest-100 text-forest-900'
+                      : 'text-muted hover:bg-forest-50 hover:text-forest-900',
+                  )
+                }
+              >
+                {item.label}
+              </NavLink>
+            ) : (
+              <span
+                key={item.href}
+                aria-disabled="true"
+                title="Coming soon"
+                className="cursor-not-allowed rounded-md px-2.5 py-2 text-[0.8125rem] font-medium text-muted/45"
+              >
+                {item.label}
+              </span>
+            ),
+          )}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
@@ -132,24 +143,35 @@ export function Header() {
           className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6"
           aria-label="Mobile"
         >
-          {navLinks.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              end={item.href === '/'}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                cn(
-                  'rounded-md px-3 py-3 text-base font-medium',
-                  isActive
-                    ? 'bg-forest-100 text-forest-900'
-                    : 'text-forest-800 hover:bg-forest-50',
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          {navLinks.map((item) =>
+            item.enabled ? (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                end={item.href === '/'}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  cn(
+                    'rounded-md px-3 py-3 text-base font-medium',
+                    isActive
+                      ? 'bg-forest-100 text-forest-900'
+                      : 'text-forest-800 hover:bg-forest-50',
+                  )
+                }
+              >
+                {item.label}
+              </NavLink>
+            ) : (
+              <span
+                key={item.href}
+                aria-disabled="true"
+                title="Coming soon"
+                className="cursor-not-allowed rounded-md px-3 py-3 text-base font-medium text-muted/45"
+              >
+                {item.label}
+              </span>
+            ),
+          )}
           <div className="mt-3 grid gap-2 border-t border-line pt-4">
             <LinkButton
               href={site.whatsapp.href}

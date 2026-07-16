@@ -28,12 +28,22 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-forest-100 transition-colors hover:text-sun-400"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.enabled ? (
+                    <Link
+                      to={item.href}
+                      className="text-sm text-forest-100 transition-colors hover:text-sun-400"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span
+                      aria-disabled="true"
+                      title="Coming soon"
+                      className="cursor-not-allowed text-sm text-forest-500"
+                    >
+                      {item.label}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

@@ -38,14 +38,14 @@ export const site = {
 } as const
 
 export const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Subsidy', href: '/subsidy' },
-  { label: 'Process', href: '/process' },
-  { label: 'Products', href: '/products' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Home', href: '/', enabled: true },
+  { label: 'About', href: '/about', enabled: false },
+  { label: 'Services', href: '/services', enabled: false },
+  { label: 'Subsidy', href: '/subsidy', enabled: false },
+  { label: 'Process', href: '/process', enabled: false },
+  { label: 'Products', href: '/products', enabled: false },
+  { label: 'FAQ', href: '/faq', enabled: false },
+  { label: 'Contact', href: '/contact', enabled: true },
 ] as const
 
 export const whyChoose = [

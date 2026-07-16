@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { HeroBackground } from '@/components/home/HeroBackground'
+import { HeroQuoteForm } from '@/components/home/HeroQuoteForm'
 import { LinkButton, RouterLinkButton } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { Section, SectionHeading } from '@/components/ui/PageChrome'
@@ -29,8 +30,8 @@ export function HomePage() {
       <section className="relative isolate min-h-[min(92svh,880px)] overflow-hidden bg-forest-950">
         <HeroBackground imageSrc={HERO_IMAGE} />
 
-        <div className="relative mx-auto flex min-h-[min(92svh,880px)] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
-          <div className="max-w-2xl">
+        <div className="relative mx-auto grid min-h-[min(92svh,880px)] max-w-6xl items-center gap-10 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8 lg:py-24">
+          <div className="max-w-xl">
             <img
               src="/logo.jpeg"
               alt={site.name}
@@ -43,7 +44,7 @@ export function HomePage() {
               {site.tagline}
             </p>
 
-            <h1 className="animate-fade-up animate-delay-2 mt-5 font-display text-[clamp(1.85rem,4.5vw,3rem)] font-bold leading-[1.1] tracking-tight text-balance text-white">
+            <h1 className="animate-fade-up animate-delay-2 mt-5 font-display text-[clamp(1.85rem,4.2vw,2.85rem)] font-bold leading-[1.1] tracking-tight text-balance text-white">
               Powering Your Home & Business With Solar Energy
             </h1>
 
@@ -71,6 +72,10 @@ export function HomePage() {
                 WhatsApp Us
               </LinkButton>
             </div>
+          </div>
+
+          <div className="flex justify-start lg:justify-end">
+            <HeroQuoteForm />
           </div>
         </div>
       </section>

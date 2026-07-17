@@ -24,40 +24,87 @@ export function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate min-h-[min(92svh,880px)] overflow-hidden bg-forest-950">
+      <section className="relative isolate overflow-hidden bg-forest-950 md:min-h-[min(86svh,740px)]">
         <HeroBackground />
 
-        <div className="relative mx-auto grid min-h-[min(92svh,880px)] max-w-6xl items-center gap-10 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8 lg:py-24">
-          <div className="max-w-xl">
-            <p className="animate-fade-up text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-sun-400 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] sm:text-xs">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-2 md:gap-8 md:py-14 lg:gap-12 lg:px-8 xl:gap-16">
+          {/* Left: brand + copy */}
+          <div className="relative z-10">
+            <p className="animate-fade-up font-display text-[clamp(2.5rem,5.5vw,4rem)] font-extrabold leading-[0.9] tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]">
+              {site.name}
+            </p>
+            <p className="animate-fade-up animate-delay-1 mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-sun-400 sm:text-xs">
               {site.fullName}
-              <span className="mx-2 text-sun-400/50">·</span>
+              <span className="mx-2 text-sun-400/45">·</span>
               {site.tagline}
             </p>
 
-            <h1 className="animate-fade-up animate-delay-1 mt-5 font-display text-[clamp(1.85rem,4.2vw,2.85rem)] font-bold leading-[1.1] tracking-tight text-balance text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]">
-              Powering Your Home & Business With Solar Energy
+            <h1 className="animate-fade-up animate-delay-2 mt-5 max-w-lg font-display text-[clamp(1.55rem,3vw,2.25rem)] font-bold leading-[1.18] tracking-tight text-balance text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.5)]">
+              Powering Your Home & Business With{' '}
+              <span className="hero-title-glow relative text-sun-400">
+                Solar Energy
+                <svg
+                  className="hero-title-stroke absolute -bottom-1 left-0 h-1.5 w-full"
+                  viewBox="0 0 240 12"
+                  fill="none"
+                  preserveAspectRatio="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M3 8.5C58 2.5 155 2 237 6"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
             </h1>
 
-            <p className="animate-fade-up animate-delay-2 mt-5 max-w-lg text-base leading-relaxed text-white/95 drop-shadow-[0_1px_10px_rgba(0,0,0,0.5)] sm:text-lg">
-              Complete rooftop solar across Vidarbha. Reduce your electricity
-              bill with reliable, high-quality systems — design to net metering.
+            <p className="animate-fade-up animate-delay-3 mt-4 max-w-md text-sm leading-relaxed text-white/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] sm:text-base">
+              Complete rooftop solar across Wardha, Nagpur, Amravati,
+              Chandrapur, Yavatmal & Akola — design to net metering.
             </p>
 
-            <div className="animate-fade-up animate-delay-3 mt-8 flex flex-wrap items-center gap-3">
+            <div className="animate-fade-up animate-delay-4 mt-6">
               <RouterLinkButton
                 to="/contact"
                 variant="sun"
                 size="lg"
-                className="shadow-[0_12px_40px_rgba(224,155,18,0.35)] transition-transform hover:-translate-y-0.5"
+                className="hero-cta-pulse group relative shadow-[0_12px_36px_rgba(224,155,18,0.4)] transition-transform hover:-translate-y-0.5"
               >
                 Book Free Site Visit
+                <span
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden
+                >
+                  →
+                </span>
               </RouterLinkButton>
+            </div>
+
+            <div className="animate-fade-up animate-delay-4 mt-7 grid max-w-sm grid-cols-3 border-t border-white/15 pt-5">
+              {[
+                ['10+', 'Years'],
+                ['MNRE', 'Guided'],
+                ['6', 'Districts'],
+              ].map(([value, label], i) => (
+                <div
+                  key={label}
+                  className={i > 0 ? 'border-l border-white/15 pl-4' : 'pr-3'}
+                >
+                  <p className="font-display text-xl font-bold text-white">{value}</p>
+                  <p className="mt-0.5 text-xs text-white/65">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="flex justify-start lg:justify-end">
-            <HeroQuoteForm />
+          {/* Right: quote form fills empty space */}
+          <div className="hero-form-enter relative z-10 flex w-full md:justify-end">
+            <div className="hero-form-halo absolute -inset-8 hidden md:block" />
+            <div className="w-full md:max-w-[26rem]">
+              <HeroQuoteForm />
+            </div>
           </div>
         </div>
       </section>
@@ -65,14 +112,14 @@ export function HomePage() {
       {/* Trust metrics */}
       <section className="relative border-b border-line bg-white">
         <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-sun-500 to-transparent" />
-        <div className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, i) => (
             <Reveal
               key={item.label}
               delay={i * 80}
               className="border-b border-line [&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:[&:nth-child(4n)]:border-r-0"
             >
-              <div className="group px-4 py-6 transition-colors hover:bg-forest-50/80 sm:px-8 sm:py-9">
+              <div className="group px-4 py-5 transition-colors hover:bg-forest-50/80 sm:px-7 sm:py-7 lg:px-8 lg:py-8">
                 <p className="font-display text-3xl font-bold tracking-tight text-forest-900 transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-4xl">
                   {item.value}
                 </p>

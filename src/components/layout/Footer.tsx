@@ -4,7 +4,7 @@ import { freeServices, navLinks, site } from '@/data/site'
 export function Footer() {
   return (
     <footer className="border-t border-line bg-forest-950 text-forest-100">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-display text-2xl font-extrabold tracking-tight text-white">

@@ -43,7 +43,7 @@ export function HeroQuoteForm() {
   }
 
   return (
-    <div className="hero-form animate-fade-up animate-delay-2 relative w-full max-w-[22.5rem] overflow-hidden rounded-xl">
+    <div className="hero-form relative w-full overflow-hidden rounded-xl">
       <div
         className="pointer-events-none absolute inset-0 rounded-xl"
         style={{

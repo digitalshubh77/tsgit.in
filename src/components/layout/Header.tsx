@@ -33,7 +33,7 @@ export function Header() {
     >
       <div
         className={cn(
-          'mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 transition-[height] duration-300 sm:px-6 lg:px-8',
+          'mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-[height] duration-300 sm:px-6 lg:px-8',
           scrolled ? 'h-16' : 'h-[4.5rem]',
         )}
       >
@@ -140,7 +140,7 @@ export function Header() {
         )}
       >
         <nav
-          className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6"
+          className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6"
           aria-label="Mobile"
         >
           {navLinks.map((item) =>

@@ -1,15 +1,10 @@
+import { getWhatsAppUrl } from '@/lib/whatsapp'
 import { site } from '@/data/site'
 
-const DEFAULT_MESSAGE = encodeURIComponent(
-  `Namaste ${site.name}! I want a free solar quotation / site visit.`,
-)
-
 export function FloatingWhatsApp() {
-  const href = `${site.whatsapp.href}?text=${DEFAULT_MESSAGE}`
-
   return (
     <a
-      href={href}
+      href={getWhatsAppUrl()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Chat on WhatsApp ${site.whatsapp.label}`}

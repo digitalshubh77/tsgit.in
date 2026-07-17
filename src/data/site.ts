@@ -13,7 +13,12 @@ export const site = {
   ],
   whatsapp: {
     label: '73854 08067',
-    href: 'https://wa.me/917385408067',
+    number: '917385408067' as const,
+    defaultMessage:
+      'Namaste TSGIT!\n\nI want a free solar quotation / site visit.\nPlease guide me on system size, price and subsidy.',
+    href: `https://wa.me/917385408067?text=${encodeURIComponent(
+      'Namaste TSGIT!\n\nI want a free solar quotation / site visit.\nPlease guide me on system size, price and subsidy.',
+    )}`,
   },
   email: 'rote.tsgit@tsgit.in',
   mapUrl: 'https://maps.app.goo.gl/GfC4qNAearzqFHC36',

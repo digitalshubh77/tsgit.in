@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { HeroBackground } from '@/components/home/HeroBackground'
 import { HeroQuoteForm } from '@/components/home/HeroQuoteForm'
 import { LinkButton, RouterLinkButton } from '@/components/ui/Button'
+import { CountUp } from '@/components/ui/CountUp'
 import { Reveal } from '@/components/ui/Reveal'
 import { Section, SectionHeading } from '@/components/ui/PageChrome'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
@@ -30,7 +31,7 @@ export function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-2 md:gap-8 md:py-14 lg:gap-12 lg:px-8 xl:gap-16">
           {/* Left: brand + copy */}
           <div className="relative z-10">
-            <p className="animate-fade-up font-display text-[clamp(2.5rem,5.5vw,4rem)] font-extrabold leading-[0.9] tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]">
+            <p className="animate-fade-up depth-3d-text font-display text-[clamp(2.5rem,5.5vw,4rem)] font-extrabold leading-[0.9] tracking-tight text-white">
               {site.name}
             </p>
             <p className="animate-fade-up animate-delay-1 mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-sun-400 sm:text-xs">
@@ -92,7 +93,9 @@ export function HomePage() {
                   key={label}
                   className={i > 0 ? 'border-l border-white/15 pl-4' : 'pr-3'}
                 >
-                  <p className="font-display text-xl font-bold text-white">{value}</p>
+                  <p className="font-display text-xl font-bold text-white">
+                    <CountUp value={value} />
+                  </p>
                   <p className="mt-0.5 text-xs text-white/65">{label}</p>
                 </div>
               ))}
@@ -100,7 +103,7 @@ export function HomePage() {
           </div>
 
           {/* Right: quote form fills empty space */}
-          <div className="hero-form-enter relative z-10 flex w-full md:justify-end">
+          <div className="hero-form-enter relative z-10 flex w-full perspective-hero md:justify-end">
             <div className="hero-form-halo absolute -inset-8 hidden md:block" />
             <div className="w-full md:max-w-[26rem]">
               <HeroQuoteForm />
@@ -110,23 +113,48 @@ export function HomePage() {
       </section>
 
       {/* Trust metrics */}
-      <section className="relative border-b border-line bg-white">
-        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-sun-500 to-transparent" />
-        <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
+      <section className="relative overflow-hidden border-b border-line bg-[#f6f9f7]">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 55% 90% at 0% 50%, rgba(240,180,41,0.08), transparent 55%), radial-gradient(ellipse 45% 80% at 100% 50%, rgba(77,120,94,0.1), transparent 50%)',
+          }}
+        />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sun-500/70 to-transparent" />
+
+        <div className="relative mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
           {highlights.map((item, i) => (
             <Reveal
               key={item.label}
-              delay={i * 80}
-              className="border-b border-line [&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:[&:nth-child(4n)]:border-r-0"
+              delay={i * 90}
+              className={[
+                'border-b border-forest-200/70',
+                '[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r',
+                'lg:[&:nth-child(4n)]:border-r-0',
+              ].join(' ')}
             >
-              <div className="group px-4 py-5 transition-colors hover:bg-forest-50/80 sm:px-7 sm:py-7 lg:px-8 lg:py-8">
-                <p className="font-display text-3xl font-bold tracking-tight text-forest-900 transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-4xl">
-                  {item.value}
+              <div className="group relative flex h-full flex-col px-5 py-7 sm:px-8 sm:py-10 lg:px-9 lg:py-12">
+                <span
+                  className="absolute left-0 top-1/2 hidden h-0 w-0.5 -translate-y-1/2 bg-sun-500 transition-all duration-500 group-hover:h-14 lg:block"
+                  aria-hidden
+                />
+
+                <p className="font-display text-[2rem] font-extrabold leading-none tracking-tight text-forest-950 transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-4xl lg:text-[2.75rem]">
+                  <CountUp value={item.value} />
                 </p>
-                <p className="mt-1.5 text-xs font-semibold tracking-wide text-forest-800 sm:mt-2 sm:text-sm">
+
+                <span
+                  className="mt-3.5 block h-0.5 w-7 origin-left bg-sun-500 transition-all duration-500 group-hover:w-12 sm:mt-4"
+                  aria-hidden
+                />
+
+                <p className="mt-3.5 font-display text-sm font-semibold tracking-tight text-forest-900 sm:mt-4 sm:text-[0.95rem]">
                   {item.label}
                 </p>
-                <p className="mt-0.5 text-xs text-muted sm:mt-1 sm:text-sm">{item.detail}</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted sm:text-sm">
+                  {item.detail}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -137,20 +165,20 @@ export function HomePage() {
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="overflow-hidden rounded-xl bg-forest-100">
+            <div className="depth-3d-media overflow-hidden rounded-xl bg-forest-100">
               <img
                 src={WHY_IMAGE}
                 alt="Solar panels on a residential rooftop"
-                className="aspect-[5/4] w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+                className="aspect-[5/4] w-full object-cover transition-transform duration-700 hover:scale-[1.05]"
                 loading="lazy"
               />
             </div>
             <div className="mt-4 flex items-baseline justify-between gap-4 border-b border-line pb-4">
               <p className="font-display text-2xl font-bold text-forest-950">
-                Since {site.since}
+                Since <CountUp value={site.since} durationMs={1600} />
               </p>
               <p className="text-sm text-muted">
-                {site.experience} years in solar
+                <CountUp value={site.experience} /> years in solar
               </p>
             </div>
           </Reveal>
@@ -284,7 +312,7 @@ export function HomePage() {
                   : ''
               }
             >
-              <div className="px-0 py-8 sm:px-4 sm:py-10">
+              <div className="depth-3d-step px-0 py-8 transition-transform duration-300 hover:-translate-y-1 sm:px-4 sm:py-10">
                 <span className="font-display text-3xl font-bold text-sun-500/90">
                   {String(step.step).padStart(2, '0')}
                 </span>
@@ -329,7 +357,7 @@ export function HomePage() {
           </Reveal>
 
           <Reveal delay={140}>
-            <div className="overflow-hidden rounded-xl bg-forest-950 shadow-[0_24px_60px_rgba(17,28,22,0.18)] transition-transform duration-500 hover:-translate-y-1">
+            <div className="depth-3d-panel overflow-hidden rounded-xl bg-forest-950 transition-transform duration-500 hover:-translate-y-1.5">
               <div className="border-b border-white/10 px-6 py-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-400">
                   Subsidy amounts
@@ -359,7 +387,7 @@ export function HomePage() {
                         {row.size}
                       </td>
                       <td className="px-6 py-5 font-display text-xl font-bold text-sun-400 sm:text-2xl">
-                        {row.amount}
+                        <CountUp value={row.amount} durationMs={1600} />
                       </td>
                     </tr>
                   ))}

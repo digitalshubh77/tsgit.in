@@ -1,7 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
 import { site } from '@/data/site'
-
-const WHATSAPP_NUMBER = '917385408067'
+import { getWhatsAppUrl } from '@/lib/whatsapp'
 
 export function HeroQuoteForm() {
   const [sending, setSending] = useState(false)
@@ -33,27 +32,23 @@ export function HeroQuoteForm() {
       .join('\n')
 
     setSending(true)
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
+    window.open(getWhatsAppUrl(text), '_blank', 'noopener,noreferrer')
     form.reset()
     setTimeout(() => setSending(false), 800)
   }
 
   return (
-    <div className="hero-form relative w-full overflow-hidden rounded-xl">
+    <div className="hero-form depth-3d-card relative w-full overflow-hidden rounded-2xl">
       <div
-        className="pointer-events-none absolute inset-0 rounded-xl"
+        className="pointer-events-none absolute inset-0 rounded-2xl"
         style={{
           background:
-            'linear-gradient(145deg, rgba(240,180,41,0.55), rgba(255,255,255,0.12) 40%, rgba(77,120,94,0.35))',
-          padding: 1,
+            'linear-gradient(145deg, rgba(240,180,41,0.65), rgba(255,255,255,0.18) 38%, rgba(77,120,94,0.4))',
         }}
       />
 
-      <div className="relative m-[1px] overflow-hidden rounded-[11px] bg-forest-950/90 backdrop-blur-xl">
+      <div className="relative m-[1.5px] overflow-hidden rounded-[14px] bg-forest-950/92 backdrop-blur-xl">
+        <div className="depth-3d-shine pointer-events-none absolute inset-0" />
         <div className="relative border-b border-white/10 px-4 py-3.5">
           <div
             className="pointer-events-none absolute inset-0 opacity-80"
@@ -71,7 +66,7 @@ export function HeroQuoteForm() {
                 Get Free Quote
               </h2>
             </div>
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#25D366]/15 text-[#25D366] ring-1 ring-[#25D366]/30">
+            <span className="depth-3d-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#25D366]/15 text-[#25D366] ring-1 ring-[#25D366]/30">
               <WhatsAppIcon className="h-4 w-4" />
             </span>
           </div>

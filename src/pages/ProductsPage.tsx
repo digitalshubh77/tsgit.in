@@ -14,8 +14,8 @@ export function ProductsPage() {
       />
 
       <Section className="section-glow">
-        <div className="grid gap-14 lg:grid-cols-2">
-          <div className="surface-3d rounded-2xl p-6 sm:p-8">
+        <div className="grid items-start gap-8 lg:grid-cols-2">
+          <div className="surface-3d rounded-2xl p-5 sm:p-6">
             <SectionHeading
               eyebrow="Solar panels"
               title="Indian-made panels"
@@ -45,8 +45,8 @@ export function ProductsPage() {
       </Section>
 
       <Section className="bg-forest-50/80">
-        <div className="grid gap-12 sm:grid-cols-2">
-          <div className="surface-3d rounded-2xl p-6 sm:p-8">
+        <div className="grid items-start gap-7 sm:grid-cols-2">
+          <div className="surface-3d rounded-2xl p-5 sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Inverters
             </p>
@@ -59,7 +59,7 @@ export function ProductsPage() {
               and system size.
             </p>
           </div>
-          <div className="surface-3d rounded-2xl p-6 sm:p-8">
+          <div className="surface-3d rounded-2xl p-5 sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Batteries
             </p>
@@ -77,15 +77,15 @@ export function ProductsPage() {
       <Section>
         <SectionHeading eyebrow="Warranty" title="What you receive" />
         <ul className="mt-8 grid max-w-4xl gap-4 text-base text-forest-900 sm:text-lg">
-          <li className="surface-3d flex gap-3 rounded-xl p-5">
+          <li className="surface-3d flex items-start gap-3 rounded-xl p-4">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
             Solar panel and inverter warranty as per company policy
           </li>
-          <li className="surface-3d flex gap-3 rounded-xl p-5">
+          <li className="surface-3d flex items-start gap-3 rounded-xl p-4">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
             Installation workmanship as per MNRE guidelines
           </li>
-          <li className="surface-3d flex gap-3 rounded-xl p-5">
+          <li className="surface-3d flex items-start gap-3 rounded-xl p-4">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
             Full warranty details are given with your quotation
           </li>

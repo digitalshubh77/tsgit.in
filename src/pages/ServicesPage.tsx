@@ -18,7 +18,7 @@ export function ServicesPage() {
           {services.map((service, index) => (
             <li
               key={service.slug}
-              className="surface-3d group grid gap-5 rounded-2xl p-6 sm:grid-cols-[5rem_1fr] sm:gap-8 sm:p-8"
+              className="surface-3d group grid items-start gap-4 rounded-2xl p-5 sm:grid-cols-[4rem_1fr] sm:gap-6 sm:p-6"
             >
               <span className="number-disc-3d flex h-14 w-14 items-center justify-center rounded-xl bg-forest-900 font-display text-xl font-bold text-sun-400 transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
                 {String(index + 1).padStart(2, '0')}
@@ -42,8 +42,8 @@ export function ServicesPage() {
           title="Warranty, Timeline & Pricing"
           description="Common details that apply across our solar installations."
         />
-        <dl className="mt-10 grid gap-5 sm:grid-cols-3">
-          <div className="surface-3d rounded-2xl p-6">
+        <dl className="mt-7 grid items-start gap-4 sm:grid-cols-3">
+          <div className="surface-3d rounded-2xl p-5">
             <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Warranty
             </dt>
@@ -52,7 +52,7 @@ export function ServicesPage() {
               Installation workmanship as per MNRE guidelines.
             </dd>
           </div>
-          <div className="surface-3d rounded-2xl p-6">
+          <div className="surface-3d rounded-2xl p-5">
             <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Timeline
             </dt>
@@ -60,7 +60,7 @@ export function ServicesPage() {
               {site.timeline} after material delivery and approvals.
             </dd>
           </div>
-          <div className="surface-3d rounded-2xl p-6">
+          <div className="surface-3d rounded-2xl p-5">
             <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Starting Price
             </dt>

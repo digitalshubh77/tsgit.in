@@ -5,10 +5,16 @@ type RevealProps = {
   children: ReactNode
   className?: string
   delay?: number
+  variant?: 'up' | 'left' | 'right' | 'scale' | 'blur'
 }
 
 /** Fade/slide in when scrolled into view */
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  delay = 0,
+  variant = 'up',
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -35,6 +41,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
       ref={ref}
       className={cn(
         'reveal-base',
+        `reveal-${variant}`,
         visible && 'reveal-visible',
         className,
       )}

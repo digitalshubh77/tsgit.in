@@ -8,7 +8,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Chat on WhatsApp ${site.whatsapp.label}`}
-      className="group fixed bottom-5 right-4 z-[60] flex items-center gap-0 sm:bottom-6 sm:right-6"
+      className="floating-whatsapp group fixed bottom-5 right-4 z-[60] flex items-center gap-0 sm:bottom-6 sm:right-6"
     >
       <span className="pointer-events-none mr-0 max-w-0 overflow-hidden whitespace-nowrap rounded-full bg-forest-950 px-0 py-2 text-xs font-semibold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:mr-2 group-hover:max-w-[10rem] group-hover:px-3.5 group-hover:opacity-100">
         Chat with us

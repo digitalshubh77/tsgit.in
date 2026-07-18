@@ -22,7 +22,7 @@ export function ProcessPage() {
           {processSteps.map((step) => (
             <li
               key={step.step}
-              className="surface-3d relative mb-5 grid gap-4 rounded-2xl p-6 sm:grid-cols-[3rem_1fr] sm:gap-8 sm:p-8"
+              className="surface-3d relative mb-4 grid items-start gap-4 rounded-2xl p-5 sm:grid-cols-[3rem_1fr] sm:gap-6 sm:p-6"
             >
               <div className="number-disc-3d relative z-10 flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 font-display text-sm font-bold text-sun-400">
                 {step.step}
@@ -39,7 +39,7 @@ export function ProcessPage() {
           ))}
         </ol>
 
-        <div className="surface-3d-dark mt-8 rounded-2xl px-6 py-8 text-white sm:px-8">
+        <div className="surface-3d-dark mt-7 rounded-2xl px-5 py-6 text-white sm:px-6">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-400">
             Total timeline
           </p>
@@ -53,7 +53,7 @@ export function ProcessPage() {
       </Section>
 
       <Section className="bg-forest-50/80">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div className="grid items-center gap-7 lg:grid-cols-2">
           <div className="media-frame-3d overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80"
@@ -62,7 +62,7 @@ export function ProcessPage() {
               loading="lazy"
             />
           </div>
-          <div className="surface-3d rounded-2xl p-6 sm:p-8">
+          <div className="surface-3d rounded-2xl p-5 sm:p-6">
             <SectionHeading
               eyebrow="Safety first"
               title="Installed to MNRE guidelines"

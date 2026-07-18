@@ -44,12 +44,12 @@ export const site = {
 
 export const navLinks = [
   { label: 'Home', href: '/', enabled: true },
-  { label: 'About', href: '/about', enabled: false },
-  { label: 'Services', href: '/services', enabled: false },
-  { label: 'Subsidy', href: '/subsidy', enabled: false },
-  { label: 'Process', href: '/process', enabled: false },
-  { label: 'Products', href: '/products', enabled: false },
-  { label: 'FAQ', href: '/faq', enabled: false },
+  { label: 'About', href: '/about', enabled: true },
+  { label: 'Services', href: '/services', enabled: true },
+  { label: 'Subsidy', href: '/subsidy', enabled: true },
+  { label: 'Process', href: '/process', enabled: true },
+  { label: 'Products', href: '/products', enabled: true },
+  { label: 'FAQ', href: '/faq', enabled: true },
   { label: 'Contact', href: '/contact', enabled: true },
 ] as const
 

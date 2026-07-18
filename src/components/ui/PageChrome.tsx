@@ -25,7 +25,9 @@ export function PageHero({ eyebrow, title, description, className }: PageHeroPro
             'radial-gradient(ellipse 80% 60% at 85% 10%, rgba(240,180,41,0.28), transparent 55%), radial-gradient(ellipse 50% 40% at 10% 90%, rgba(77,120,94,0.5), transparent 50%)',
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="page-hero-orb page-hero-orb-a" aria-hidden />
+      <div className="page-hero-orb page-hero-orb-b" aria-hidden />
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
         {eyebrow ? (
           <p className="animate-fade-up flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
             <span className="h-px w-8 bg-sun-400" aria-hidden />
@@ -53,7 +55,10 @@ type SectionProps = {
 
 export function Section({ children, className, id }: SectionProps) {
   return (
-    <section id={id} className={cn('py-14 sm:py-16 lg:py-20', className)}>
+    <section
+      id={id}
+      className={cn('section-depth py-8 sm:py-10 lg:py-12', className)}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   )
@@ -98,7 +103,7 @@ export function CtaBand() {
             'radial-gradient(ellipse 60% 80% at 100% 50%, rgba(240,180,41,0.22), transparent 55%)',
         }}
       />
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-4 py-14 sm:px-6 sm:py-16 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div className="max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
             Start today

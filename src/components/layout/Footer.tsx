@@ -3,7 +3,7 @@ import { freeServices, navLinks, site } from '@/data/site'
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line bg-forest-950 text-forest-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_-16px_40px_rgba(17,28,22,0.08)]">
+    <footer className="premium-footer relative z-10 overflow-hidden border-t border-line bg-forest-950 text-forest-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_-16px_40px_rgba(17,28,22,0.08)]">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -11,8 +11,8 @@ export function Footer() {
             'radial-gradient(circle at 10% 20%, rgba(77,120,94,0.24), transparent 30%), radial-gradient(circle at 90% 10%, rgba(240,180,41,0.1), transparent 26%)',
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="relative mx-auto max-w-7xl px-4 py-9 sm:px-6 lg:px-8">
+        <div className="grid gap-7 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div className="surface-3d-dark rounded-2xl p-6">
             <p className="font-display text-2xl font-extrabold tracking-tight text-white">
               {site.name}
@@ -38,7 +38,7 @@ export function Footer() {
                   {item.enabled ? (
                     <Link
                       to={item.href}
-                      className="text-sm text-forest-100 transition-colors hover:text-sun-400"
+                    className="footer-link link-underline text-sm text-forest-100 transition-colors hover:text-sun-400"
                     >
                       {item.label}
                     </Link>
@@ -67,7 +67,7 @@ export function Footer() {
                   <a
                     key={p.href}
                     href={p.href}
-                    className="block transition-colors hover:text-sun-400"
+                    className="footer-link link-underline block w-fit transition-colors hover:text-sun-400"
                   >
                     {p.label}
                   </a>
@@ -76,7 +76,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="transition-colors hover:text-sun-400"
+                  className="footer-link link-underline transition-colors hover:text-sun-400"
                 >
                   {site.email}
                 </a>
@@ -86,7 +86,7 @@ export function Footer() {
                   href={site.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-sun-400"
+                  className="social-link transition-colors hover:text-sun-400"
                 >
                   Facebook
                 </a>
@@ -94,7 +94,7 @@ export function Footer() {
                   href={site.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-sun-400"
+                  className="social-link transition-colors hover:text-sun-400"
                 >
                   Instagram
                 </a>
@@ -103,13 +103,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-x-4 gap-y-2 border-t border-forest-800 pt-6 text-sm text-forest-300">
+        <div className="mt-8 flex flex-wrap gap-x-4 gap-y-2 border-t border-forest-800 pt-5 text-sm text-forest-300">
           {freeServices.map((item) => (
             <span key={item}>{item}</span>
           ))}
         </div>
 
-        <div className="mt-8 space-y-3 border-t border-forest-800 pt-6 text-xs leading-relaxed text-forest-400">
+        <div className="mt-6 space-y-3 border-t border-forest-800 pt-5 text-xs leading-relaxed text-forest-400">
           <p>
             © {new Date().getFullYear()} {site.name} ({site.fullName}) |{' '}
             {site.tagline} | Since {site.since}

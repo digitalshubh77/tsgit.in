@@ -22,8 +22,8 @@ export function AboutPage() {
       />
 
       <Section className="section-glow">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div className="surface-3d self-center rounded-2xl p-6 sm:p-8">
+        <div className="grid items-start gap-7 lg:grid-cols-[1.1fr_0.9fr] lg:gap-9">
+          <div className="surface-3d rounded-2xl p-5 sm:p-6">
             <p className="text-lg leading-relaxed text-forest-900 sm:text-xl">
               Since {site.since}, we have been helping homes and businesses
               across Vidarbha switch to clean and affordable solar power.
@@ -49,8 +49,8 @@ export function AboutPage() {
       </Section>
 
       <Section className="bg-forest-50/80">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="surface-3d rounded-2xl border-l-4 border-l-sun-500 p-6 sm:p-8">
+        <div className="grid items-start gap-7 lg:grid-cols-2">
+          <div className="surface-3d rounded-2xl border-l-4 border-l-sun-500 p-5 sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
               Mission
             </p>
@@ -61,7 +61,7 @@ export function AboutPage() {
               {site.mission}
             </p>
           </div>
-          <div className="surface-3d rounded-2xl border-l-4 border-l-forest-600 p-6 sm:p-8">
+          <div className="surface-3d rounded-2xl border-l-4 border-l-forest-600 p-5 sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
               Vision
             </p>
@@ -77,11 +77,11 @@ export function AboutPage() {
 
       <Section>
         <SectionHeading eyebrow="At a glance" title="Quick Facts" />
-        <dl className="surface-3d mt-10 divide-y divide-line overflow-hidden rounded-2xl">
+        <dl className="surface-3d mt-7 divide-y divide-line overflow-hidden rounded-2xl">
           {facts.map((fact) => (
             <div
               key={fact.label}
-              className="interactive-row-3d grid gap-2 px-5 py-5 sm:grid-cols-[14rem_1fr] sm:gap-8 sm:px-7"
+              className="interactive-row-3d grid items-start gap-2 px-5 py-4 sm:grid-cols-[14rem_1fr] sm:gap-6 sm:px-6"
             >
               <dt className="text-sm font-semibold uppercase tracking-wider text-muted">
                 {fact.label}

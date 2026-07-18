@@ -49,8 +49,8 @@ export function ContactPage() {
       />
 
       <Section className="section-glow">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-          <div className="surface-3d rounded-2xl p-6 sm:p-8">
+        <div className="grid items-stretch gap-7 lg:grid-cols-2 lg:gap-7">
+          <div className="surface-3d h-full rounded-2xl p-5 sm:p-6">
             <SectionHeading
               eyebrow="Reach us"
               title={site.name}
@@ -58,7 +58,7 @@ export function ContactPage() {
             />
 
             <dl className="mt-8 divide-y divide-line">
-              <div className="interactive-row-3d px-2 py-5">
+              <div className="interactive-row-3d px-2 py-4">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Address
                 </dt>
@@ -79,7 +79,7 @@ export function ContactPage() {
                   <span aria-hidden>→</span>
                 </a>
               </div>
-              <div className="interactive-row-3d px-2 py-5">
+              <div className="interactive-row-3d px-2 py-4">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Phone
                 </dt>
@@ -95,7 +95,7 @@ export function ContactPage() {
                   ))}
                 </dd>
               </div>
-              <div className="interactive-row-3d px-2 py-5">
+              <div className="interactive-row-3d px-2 py-4">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   WhatsApp
                 </dt>
@@ -110,7 +110,7 @@ export function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div className="interactive-row-3d px-2 py-5">
+              <div className="interactive-row-3d px-2 py-4">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Email
                 </dt>
@@ -123,7 +123,7 @@ export function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div className="interactive-row-3d px-2 py-5">
+              <div className="interactive-row-3d px-2 py-4">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Service Areas
                 </dt>
@@ -131,48 +131,10 @@ export function ContactPage() {
                   {site.serviceAreas.join(' · ')}
                 </dd>
               </div>
-              <div className="flex gap-4 px-2 pt-5">
-                <a
-                  href={site.social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-forest-800 hover:text-sun-600"
-                >
-                  Facebook
-                </a>
-                <a
-                  href={site.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-forest-800 hover:text-sun-600"
-                >
-                  Instagram
-                </a>
-              </div>
             </dl>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <LinkButton href={site.phones[0].href} variant="primary">
-                Call Now
-              </LinkButton>
-              <LinkButton
-                href={site.whatsapp.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="sun"
-              >
-                WhatsApp
-              </LinkButton>
-            </div>
-
-            <ul className="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
-              {freeServices.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </div>
 
-          <div className="surface-3d rounded-2xl p-6 sm:p-8">
+          <div className="surface-3d h-full rounded-2xl p-5 sm:p-6">
             <h2 className="font-display text-2xl font-bold text-forest-950">
               Get Free Quote
             </h2>
@@ -235,10 +197,54 @@ export function ContactPage() {
             </form>
           </div>
         </div>
+
+        <div className="surface-3d mt-7 grid items-center gap-5 rounded-2xl p-5 sm:p-6 lg:grid-cols-[1fr_auto]">
+          <div>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+              {freeServices.map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-sun-500" aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 flex gap-4">
+              <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline text-sm font-semibold text-forest-800 hover:text-sun-600"
+              >
+                Facebook
+              </a>
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline text-sm font-semibold text-forest-800 hover:text-sun-600"
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <LinkButton href={site.phones[0].href} variant="primary">
+              Call Now
+            </LinkButton>
+            <LinkButton
+              href={site.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="sun"
+            >
+              WhatsApp
+            </LinkButton>
+          </div>
+        </div>
       </Section>
 
       <section className="section-glow border-t border-line bg-forest-50/50">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
           <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">

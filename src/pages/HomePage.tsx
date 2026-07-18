@@ -25,10 +25,10 @@ export function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-forest-950 md:min-h-[min(86svh,740px)]">
+      <section className="relative isolate overflow-hidden bg-forest-950">
         <HeroBackground />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-2 md:gap-8 md:py-14 lg:gap-12 lg:px-8 xl:gap-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-8 sm:px-6 sm:py-9 md:grid-cols-2 md:gap-8 md:py-10 lg:gap-9 lg:px-8 xl:gap-10">
           {/* Left: brand + copy */}
           <div className="home-hero-copy relative z-10">
             <p className="animate-fade-up depth-3d-text font-display text-[clamp(2.5rem,5.5vw,4rem)] font-extrabold leading-[0.9] tracking-tight text-white">
@@ -130,7 +130,7 @@ export function HomePage() {
               delay={i * 90}
               className="h-full"
             >
-              <div className="home-metric-3d group relative flex h-full flex-col overflow-hidden px-5 py-7 sm:px-7 sm:py-9">
+              <div className="home-metric-3d group relative flex h-full flex-col overflow-hidden p-5 sm:p-6">
                 <span
                   className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sun-400/10 blur-xl transition-transform duration-500 group-hover:scale-150"
                   aria-hidden
@@ -163,8 +163,8 @@ export function HomePage() {
 
       {/* Why choose */}
       <Section className="section-glow">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+          <Reveal variant="left">
             <div className="media-frame-3d overflow-hidden rounded-2xl bg-forest-100">
               <img
                 src={WHY_IMAGE}
@@ -183,7 +183,11 @@ export function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="surface-3d rounded-2xl p-6 sm:p-8">
+          <Reveal
+            delay={120}
+            variant="right"
+            className="surface-3d rounded-2xl p-5 sm:p-6"
+          >
             <SectionHeading
               eyebrow="Why TSGIT"
               title="Trusted solar partner for homes & businesses"
@@ -254,9 +258,9 @@ export function HomePage() {
           </div>
         </Reveal>
 
-        <div className="relative mt-12 grid gap-3">
+        <div className="relative mt-8 grid gap-3">
           {services.map((service, i) => (
-            <Reveal key={service.slug} delay={i * 60}>
+            <Reveal key={service.slug} delay={i * 60} variant="blur">
               <div className="home-service-3d overflow-hidden rounded-xl">
                 <Link
                   to="/services"
@@ -308,14 +312,15 @@ export function HomePage() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step, i) => (
             <Reveal
               key={step.step}
               delay={i * 70}
+              variant="scale"
               className="h-full"
             >
-              <div className="home-step-3d group p-5 sm:p-6">
+              <div className="home-step-3d group p-4 sm:p-5">
                 <span className="number-disc-3d flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 font-display text-sm font-bold text-sun-400 transition-transform duration-300 group-hover:-rotate-3">
                   {String(step.step).padStart(2, '0')}
                 </span>
@@ -333,9 +338,9 @@ export function HomePage() {
 
       {/* Subsidy */}
       <Section className="section-glow bg-forest-50/90">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <div className="surface-3d rounded-2xl p-6 sm:p-8">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+          <Reveal variant="left">
+            <div className="surface-3d rounded-2xl p-5 sm:p-6">
               <SectionHeading
                 eyebrow="PM Surya Ghar"
                 title="Government subsidy up to ₹78,000 for home solar"
@@ -361,7 +366,7 @@ export function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={140}>
+          <Reveal delay={140} variant="right">
             <div className="depth-3d-panel surface-3d-dark overflow-hidden rounded-2xl bg-forest-950 transition-transform duration-500 hover:-translate-y-1.5">
               <div className="border-b border-white/10 px-6 py-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-400">
@@ -412,8 +417,8 @@ export function HomePage() {
               'radial-gradient(ellipse 70% 80% at 100% 0%, rgba(240,180,41,0.2), transparent 55%), radial-gradient(ellipse 40% 50% at 0% 100%, rgba(77,120,94,0.35), transparent 50%)',
           }}
         />
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-          <Reveal>
+        <div className="relative mx-auto max-w-6xl px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-12">
+          <Reveal variant="blur">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
                 Getting started is free
@@ -427,7 +432,7 @@ export function HomePage() {
               </p>
             </div>
 
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {freeServices.map((item) => (
                 <li
                   key={item}
@@ -444,7 +449,7 @@ export function HomePage() {
               ))}
             </ul>
 
-            <div className="surface-3d-dark mt-12 flex flex-col gap-6 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div className="surface-3d-dark mt-8 flex flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
               <p className="text-sm text-forest-200">
                 Call{' '}
                 <a

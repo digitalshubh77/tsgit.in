@@ -21,9 +21,9 @@ export function AboutPage() {
         description={`${site.fullName} is a solar energy solutions company based in Mhasala, Wardha, Maharashtra.`}
       />
 
-      <Section>
+      <Section className="section-glow">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div>
+          <div className="surface-3d self-center rounded-2xl p-6 sm:p-8">
             <p className="text-lg leading-relaxed text-forest-900 sm:text-xl">
               Since {site.since}, we have been helping homes and businesses
               across Vidarbha switch to clean and affordable solar power.
@@ -37,11 +37,11 @@ export function AboutPage() {
               our customers first.
             </p>
           </div>
-          <div className="overflow-hidden rounded-xl">
+          <div className="media-frame-3d overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1000&q=80"
               alt="Solar farm panels catching sunlight"
-              className="aspect-[4/3] w-full object-cover"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
           </div>
@@ -50,7 +50,7 @@ export function AboutPage() {
 
       <Section className="bg-forest-50/80">
         <div className="grid gap-12 lg:grid-cols-2">
-          <div className="border-l-4 border-sun-500 pl-6">
+          <div className="surface-3d rounded-2xl border-l-4 border-l-sun-500 p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
               Mission
             </p>
@@ -61,7 +61,7 @@ export function AboutPage() {
               {site.mission}
             </p>
           </div>
-          <div className="border-l-4 border-forest-600 pl-6">
+          <div className="surface-3d rounded-2xl border-l-4 border-l-forest-600 p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
               Vision
             </p>
@@ -77,11 +77,11 @@ export function AboutPage() {
 
       <Section>
         <SectionHeading eyebrow="At a glance" title="Quick Facts" />
-        <dl className="mt-10 divide-y divide-line border-y border-line">
+        <dl className="surface-3d mt-10 divide-y divide-line overflow-hidden rounded-2xl">
           {facts.map((fact) => (
             <div
               key={fact.label}
-              className="grid gap-2 py-5 sm:grid-cols-[14rem_1fr] sm:gap-8"
+              className="interactive-row-3d grid gap-2 px-5 py-5 sm:grid-cols-[14rem_1fr] sm:gap-8 sm:px-7"
             >
               <dt className="text-sm font-semibold uppercase tracking-wider text-muted">
                 {fact.label}
@@ -95,13 +95,13 @@ export function AboutPage() {
         </p>
       </Section>
 
-      <Section className="border-t border-line bg-white">
+      <Section className="section-glow border-t border-line bg-white">
         <SectionHeading eyebrow="What sets us apart" title="Key Strengths" />
-        <ul className="mt-8 columns-1 gap-x-12 sm:columns-2">
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {whyChoose.map((item) => (
             <li
               key={item}
-              className="mb-3 flex break-inside-avoid items-start gap-3 text-forest-900"
+              className="surface-3d flex items-start gap-3 rounded-xl p-4 text-forest-900"
             >
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
               {item}

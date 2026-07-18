@@ -13,7 +13,7 @@ export function ProcessPage() {
         description={`From first site visit to commissioning — a clear path to your solar plant. Total timeline: ${site.timeline} after material delivery and approvals.`}
       />
 
-      <Section>
+      <Section className="section-glow">
         <ol className="relative space-y-0">
           <div
             className="absolute left-[1.15rem] top-3 bottom-3 hidden w-px bg-line sm:block"
@@ -22,12 +22,12 @@ export function ProcessPage() {
           {processSteps.map((step) => (
             <li
               key={step.step}
-              className="relative grid gap-4 py-8 sm:grid-cols-[3rem_1fr] sm:gap-8 sm:py-10"
+              className="surface-3d relative mb-5 grid gap-4 rounded-2xl p-6 sm:grid-cols-[3rem_1fr] sm:gap-8 sm:p-8"
             >
-              <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-forest-900 font-display text-sm font-bold text-white">
+              <div className="number-disc-3d relative z-10 flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 font-display text-sm font-bold text-sun-400">
                 {step.step}
               </div>
-              <div className="border-b border-line pb-8 sm:border-0 sm:pb-0">
+              <div>
                 <h2 className="font-display text-2xl font-bold tracking-tight text-forest-950">
                   Step {step.step}: {step.title}
                 </h2>
@@ -39,7 +39,7 @@ export function ProcessPage() {
           ))}
         </ol>
 
-        <div className="mt-4 rounded-xl bg-forest-900 px-6 py-8 text-white sm:px-8">
+        <div className="surface-3d-dark mt-8 rounded-2xl px-6 py-8 text-white sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-400">
             Total timeline
           </p>
@@ -54,15 +54,15 @@ export function ProcessPage() {
 
       <Section className="bg-forest-50/80">
         <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-xl">
+          <div className="media-frame-3d overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80"
               alt="Technician installing solar panels"
-              className="aspect-[4/3] w-full object-cover"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
           </div>
-          <div>
+          <div className="surface-3d rounded-2xl p-6 sm:p-8">
             <SectionHeading
               eyebrow="Safety first"
               title="Installed to MNRE guidelines"

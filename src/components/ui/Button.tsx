@@ -24,7 +24,7 @@ const sizes: Record<Size, string> = {
 }
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-md font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
+  'button-3d inline-flex items-center justify-center gap-2 rounded-lg font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
 
 export function buttonClass(
   variant: Variant = 'primary',

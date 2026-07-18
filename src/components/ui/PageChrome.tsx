@@ -14,7 +14,7 @@ export function PageHero({ eyebrow, title, description, className }: PageHeroPro
   return (
     <section
       className={cn(
-        'relative overflow-hidden border-b border-line bg-forest-950 text-white',
+        'page-hero-3d relative overflow-hidden border-b border-line bg-forest-950 text-white',
         className,
       )}
     >
@@ -25,13 +25,14 @@ export function PageHero({ eyebrow, title, description, className }: PageHeroPro
             'radial-gradient(ellipse 80% 60% at 85% 10%, rgba(240,180,41,0.28), transparent 55%), radial-gradient(ellipse 50% 40% at 10% 90%, rgba(77,120,94,0.5), transparent 50%)',
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         {eyebrow ? (
-          <p className="animate-fade-up text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
+          <p className="animate-fade-up flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
+            <span className="h-px w-8 bg-sun-400" aria-hidden />
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="animate-fade-up animate-delay-1 mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
+        <h1 className="page-hero-title-3d animate-fade-up animate-delay-1 mt-4 max-w-4xl font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl">
           {title}
         </h1>
         {description ? (
@@ -52,7 +53,7 @@ type SectionProps = {
 
 export function Section({ children, className, id }: SectionProps) {
   return (
-    <section id={id} className={cn('py-12 sm:py-14 lg:py-16', className)}>
+    <section id={id} className={cn('py-14 sm:py-16 lg:py-20', className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   )
@@ -70,7 +71,8 @@ export function SectionHeading({
   return (
     <div className="max-w-2xl">
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
+        <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
+          <span className="h-px w-6 bg-sun-500" aria-hidden />
           {eyebrow}
         </p>
       ) : null}
@@ -88,7 +90,7 @@ export function SectionHeading({
 
 export function CtaBand() {
   return (
-    <section className="relative overflow-hidden bg-forest-800">
+    <section className="cta-band-3d relative overflow-hidden bg-forest-800">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -96,7 +98,7 @@ export function CtaBand() {
             'radial-gradient(ellipse 60% 80% at 100% 50%, rgba(240,180,41,0.22), transparent 55%)',
         }}
       />
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-4 py-12 sm:px-6 sm:py-14 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-4 py-14 sm:px-6 sm:py-16 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div className="max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
             Start today
@@ -135,10 +137,10 @@ export function CtaBand() {
             </a>
           </p>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="surface-3d-dark flex flex-wrap gap-3 rounded-2xl p-3 sm:p-4">
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-sun-500 px-6 py-3.5 text-sm font-semibold text-forest-950 transition-colors hover:bg-sun-400"
+            className="button-3d inline-flex items-center justify-center rounded-lg bg-sun-500 px-6 py-3.5 text-sm font-semibold text-forest-950 hover:bg-sun-400"
           >
             Book Free Site Visit
           </Link>
@@ -146,7 +148,7 @@ export function CtaBand() {
             href={site.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md border border-white/25 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            className="button-3d inline-flex items-center justify-center rounded-lg border border-white/25 bg-transparent px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
           >
             WhatsApp Us
           </a>

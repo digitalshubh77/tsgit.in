@@ -30,7 +30,7 @@ export function HomePage() {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-14 md:grid-cols-2 md:gap-8 md:py-14 lg:gap-12 lg:px-8 xl:gap-16">
           {/* Left: brand + copy */}
-          <div className="relative z-10">
+          <div className="home-hero-copy relative z-10">
             <p className="animate-fade-up depth-3d-text font-display text-[clamp(2.5rem,5.5vw,4rem)] font-extrabold leading-[0.9] tracking-tight text-white">
               {site.name}
             </p>
@@ -83,15 +83,15 @@ export function HomePage() {
               </RouterLinkButton>
             </div>
 
-            <div className="animate-fade-up animate-delay-4 mt-7 grid max-w-sm grid-cols-3 border-t border-white/15 pt-5">
+            <div className="animate-fade-up animate-delay-4 mt-7 grid max-w-md grid-cols-3 gap-2.5 perspective-hero">
               {[
                 ['10+', 'Years'],
                 ['MNRE', 'Guided'],
                 ['6', 'Districts'],
-              ].map(([value, label], i) => (
+              ].map(([value, label]) => (
                 <div
                   key={label}
-                  className={i > 0 ? 'border-l border-white/15 pl-4' : 'pr-3'}
+                  className="home-stat-3d px-3 py-3 sm:px-4"
                 >
                   <p className="font-display text-xl font-bold text-white">
                     <CountUp value={value} />
@@ -123,18 +123,18 @@ export function HomePage() {
         />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sun-500/70 to-transparent" />
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 py-5 sm:gap-4 sm:px-6 sm:py-7 lg:grid-cols-4 lg:px-8">
           {highlights.map((item, i) => (
             <Reveal
               key={item.label}
               delay={i * 90}
-              className={[
-                'border-b border-forest-200/70',
-                '[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r',
-                'lg:[&:nth-child(4n)]:border-r-0',
-              ].join(' ')}
+              className="h-full"
             >
-              <div className="group relative flex h-full flex-col px-5 py-7 sm:px-8 sm:py-10 lg:px-9 lg:py-12">
+              <div className="home-metric-3d group relative flex h-full flex-col overflow-hidden px-5 py-7 sm:px-7 sm:py-9">
+                <span
+                  className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sun-400/10 blur-xl transition-transform duration-500 group-hover:scale-150"
+                  aria-hidden
+                />
                 <span
                   className="absolute left-0 top-1/2 hidden h-0 w-0.5 -translate-y-1/2 bg-sun-500 transition-all duration-500 group-hover:h-14 lg:block"
                   aria-hidden
@@ -162,10 +162,10 @@ export function HomePage() {
       </section>
 
       {/* Why choose */}
-      <Section>
+      <Section className="section-glow">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="depth-3d-media overflow-hidden rounded-xl bg-forest-100">
+            <div className="media-frame-3d overflow-hidden rounded-2xl bg-forest-100">
               <img
                 src={WHY_IMAGE}
                 alt="Solar panels on a residential rooftop"
@@ -173,7 +173,7 @@ export function HomePage() {
                 loading="lazy"
               />
             </div>
-            <div className="mt-4 flex items-baseline justify-between gap-4 border-b border-line pb-4">
+            <div className="surface-3d mt-6 flex items-baseline justify-between gap-4 rounded-xl px-5 py-4">
               <p className="font-display text-2xl font-bold text-forest-950">
                 Since <CountUp value={site.since} durationMs={1600} />
               </p>
@@ -183,16 +183,16 @@ export function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal delay={120} className="surface-3d rounded-2xl p-6 sm:p-8">
             <SectionHeading
               eyebrow="Why TSGIT"
               title="Trusted solar partner for homes & businesses"
               description="MNRE-guided rooftop solar with a customer-first approach — from design and installation to maintenance and net metering."
             />
-            <ul className="mt-8 divide-y divide-line border-y border-line">
+            <ul className="mt-8 divide-y divide-line overflow-hidden rounded-xl border border-line bg-white/60">
               {whyChoose.map((item) => (
                 <li key={item}>
-                  <div className="flex items-center gap-4 py-3.5 transition-all duration-300 hover:translate-x-1 hover:bg-forest-50/80">
+                  <div className="interactive-row-3d flex items-center gap-4 px-4 py-3.5">
                     <span
                       className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sun-500/15 text-sun-600"
                       aria-hidden
@@ -222,7 +222,14 @@ export function HomePage() {
       </Section>
 
       {/* Services */}
-      <Section className="bg-forest-950 text-white">
+      <Section className="relative overflow-hidden bg-forest-950 text-white">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(circle at 90% 10%, rgba(240,180,41,0.12), transparent 28%), radial-gradient(circle at 0% 90%, rgba(77,120,94,0.3), transparent 34%)',
+          }}
+        />
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-xl">
@@ -247,15 +254,15 @@ export function HomePage() {
           </div>
         </Reveal>
 
-        <div className="mt-12 border-t border-white/10">
+        <div className="relative mt-12 grid gap-3">
           {services.map((service, i) => (
             <Reveal key={service.slug} delay={i * 60}>
-              <div className="border-b border-white/10">
+              <div className="home-service-3d overflow-hidden rounded-xl">
                 <Link
                   to="/services"
-                  className="group grid gap-2 py-6 transition-colors sm:grid-cols-[4rem_1fr_auto] sm:items-center sm:gap-6 sm:py-7"
+                  className="group grid gap-2 px-5 py-5 sm:grid-cols-[4rem_1fr_auto] sm:items-center sm:gap-6 sm:px-6 sm:py-6"
                 >
-                  <span className="font-display text-sm font-semibold text-sun-500/80 transition-colors group-hover:text-sun-400">
+                  <span className="number-disc-3d flex h-10 w-10 items-center justify-center rounded-lg bg-forest-800 font-display text-sm font-semibold text-sun-400 transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
@@ -283,7 +290,7 @@ export function HomePage() {
       </Section>
 
       {/* Process */}
-      <Section>
+      <Section className="section-glow">
         <Reveal>
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -301,19 +308,15 @@ export function HomePage() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-0 border-t border-line sm:grid-cols-5">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step, i) => (
             <Reveal
               key={step.step}
               delay={i * 70}
-              className={
-                i < processSteps.length - 1
-                  ? 'border-b border-line sm:border-b-0 sm:border-r'
-                  : ''
-              }
+              className="h-full"
             >
-              <div className="depth-3d-step px-0 py-8 transition-transform duration-300 hover:-translate-y-1 sm:px-4 sm:py-10">
-                <span className="font-display text-3xl font-bold text-sun-500/90">
+              <div className="home-step-3d group p-5 sm:p-6">
+                <span className="number-disc-3d flex h-11 w-11 items-center justify-center rounded-xl bg-forest-900 font-display text-sm font-bold text-sun-400 transition-transform duration-300 group-hover:-rotate-3">
                   {String(step.step).padStart(2, '0')}
                 </span>
                 <h3 className="mt-3 font-display text-base font-semibold text-forest-950 sm:text-lg">
@@ -329,35 +332,37 @@ export function HomePage() {
       </Section>
 
       {/* Subsidy */}
-      <Section className="bg-forest-50/90">
+      <Section className="section-glow bg-forest-50/90">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <SectionHeading
-              eyebrow="PM Surya Ghar"
-              title="Government subsidy up to ₹78,000 for home solar"
-              description="Under PM Surya Ghar: Muft Bijli Yojana, eligible homeowners get direct subsidy in their bank account."
-            />
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              For residential systems only. We handle portal application,
-              documentation, and DISCOM approval.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <RouterLinkButton to="/subsidy" variant="primary">
-                Learn about subsidy
-              </RouterLinkButton>
-              <LinkButton
-                href={site.whatsapp.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outline"
-              >
-                Ask your amount
-              </LinkButton>
+            <div className="surface-3d rounded-2xl p-6 sm:p-8">
+              <SectionHeading
+                eyebrow="PM Surya Ghar"
+                title="Government subsidy up to ₹78,000 for home solar"
+                description="Under PM Surya Ghar: Muft Bijli Yojana, eligible homeowners get direct subsidy in their bank account."
+              />
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                For residential systems only. We handle portal application,
+                documentation, and DISCOM approval.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <RouterLinkButton to="/subsidy" variant="primary">
+                  Learn about subsidy
+                </RouterLinkButton>
+                <LinkButton
+                  href={site.whatsapp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                >
+                  Ask your amount
+                </LinkButton>
+              </div>
             </div>
           </Reveal>
 
           <Reveal delay={140}>
-            <div className="depth-3d-panel overflow-hidden rounded-xl bg-forest-950 transition-transform duration-500 hover:-translate-y-1.5">
+            <div className="depth-3d-panel surface-3d-dark overflow-hidden rounded-2xl bg-forest-950 transition-transform duration-500 hover:-translate-y-1.5">
               <div className="border-b border-white/10 px-6 py-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-400">
                   Subsidy amounts
@@ -426,14 +431,20 @@ export function HomePage() {
               {freeServices.map((item) => (
                 <li
                   key={item}
-                  className="border-l-2 border-sun-500 pl-4 text-sm font-medium text-white transition-transform duration-300 hover:translate-x-1 sm:text-base"
+                  className="surface-3d-dark flex items-center gap-3 rounded-xl p-4 text-sm font-medium text-white sm:text-base"
                 >
+                  <span
+                    className="number-disc-3d flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sun-500 text-xs font-bold text-forest-950"
+                    aria-hidden
+                  >
+                    ✓
+                  </span>
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
+            <div className="surface-3d-dark mt-12 flex flex-col gap-6 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <p className="text-sm text-forest-200">
                 Call{' '}
                 <a

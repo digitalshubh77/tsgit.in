@@ -27,7 +27,7 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 border-b transition-[background,border-color,box-shadow,height] duration-300',
         scrolled
-          ? 'border-line bg-paper/95 shadow-[0_8px_30px_rgba(17,28,22,0.06)] backdrop-blur-md'
+          ? 'border-line bg-paper/95 shadow-[0_2px_0_rgba(255,255,255,0.9)_inset,0_10px_35px_rgba(17,28,22,0.1)] backdrop-blur-md'
           : 'border-transparent bg-paper/90 backdrop-blur-sm',
       )}
     >
@@ -47,7 +47,7 @@ export function Header() {
             src="/logo.jpeg"
             alt={site.name}
             className={cn(
-              'w-auto rounded object-contain transition-transform duration-300 group-hover:scale-[1.03]',
+              'w-auto rounded object-contain drop-shadow-[0_5px_8px_rgba(17,28,22,0.18)] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.03]',
               scrolled ? 'h-10 sm:h-11' : 'h-11 sm:h-12',
             )}
           />
@@ -62,10 +62,10 @@ export function Header() {
                 end={item.href === '/'}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-md px-2.5 py-2 text-[0.8125rem] font-medium transition-colors',
+                    'rounded-lg px-2.5 py-2 text-[0.8125rem] font-medium transition-all duration-300',
                     isActive
-                      ? 'bg-forest-100 text-forest-900'
-                      : 'text-muted hover:bg-forest-50 hover:text-forest-900',
+                      ? 'bg-forest-100 text-forest-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_5px_12px_rgba(17,28,22,0.08)]'
+                      : 'text-muted hover:-translate-y-0.5 hover:bg-forest-50 hover:text-forest-900',
                   )
                 }
               >
@@ -102,7 +102,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-forest-900 lg:hidden"
+          className="button-3d inline-flex h-10 w-10 items-center justify-center rounded-lg border border-line bg-white text-forest-900 lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -135,7 +135,7 @@ export function Header() {
       <div
         id="mobile-nav"
         className={cn(
-          'border-t border-line bg-paper lg:hidden',
+          'border-t border-line bg-paper shadow-[0_22px_45px_rgba(17,28,22,0.16)] lg:hidden',
           open ? 'block' : 'hidden',
         )}
       >

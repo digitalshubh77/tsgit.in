@@ -3,10 +3,17 @@ import { freeServices, navLinks, site } from '@/data/site'
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-forest-950 text-forest-100">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden border-t border-line bg-forest-950 text-forest-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_-16px_40px_rgba(17,28,22,0.08)]">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(circle at 10% 20%, rgba(77,120,94,0.24), transparent 30%), radial-gradient(circle at 90% 10%, rgba(240,180,41,0.1), transparent 26%)',
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
+          <div className="surface-3d-dark rounded-2xl p-6">
             <p className="font-display text-2xl font-extrabold tracking-tight text-white">
               {site.name}
             </p>

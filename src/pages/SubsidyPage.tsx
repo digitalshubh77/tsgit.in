@@ -21,13 +21,13 @@ export function SubsidyPage() {
         description="The Government of India gives direct subsidy for rooftop solar under the PM Surya Ghar scheme."
       />
 
-      <Section>
+      <Section className="section-glow">
         <SectionHeading
           eyebrow="Subsidy table"
           title="How much can you get?"
           description="Direct benefit amounts for eligible residential rooftop systems."
         />
-        <div className="mt-10 overflow-hidden rounded-xl border border-line">
+        <div className="surface-3d mt-10 overflow-hidden rounded-2xl">
           <table className="w-full text-left">
             <thead>
               <tr className="bg-forest-950 text-white">
@@ -43,7 +43,7 @@ export function SubsidyPage() {
               {subsidyRows.map((row, i) => (
                 <tr
                   key={row.size}
-                  className={i % 2 === 0 ? 'bg-white' : 'bg-forest-50/60'}
+                  className={`interactive-row-3d ${i % 2 === 0 ? 'bg-white/90' : 'bg-forest-50/70'}`}
                 >
                   <td className="px-6 py-5 text-base font-medium text-forest-900 sm:text-lg">
                     {row.size}
@@ -58,26 +58,33 @@ export function SubsidyPage() {
         </div>
       </Section>
 
-      <section className="bg-forest-950 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden bg-forest-950 text-white">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(circle at 90% 20%, rgba(240,180,41,0.16), transparent 32%), radial-gradient(circle at 0% 100%, rgba(77,120,94,0.4), transparent 36%)',
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sun-400">
             Good to know
           </p>
           <h2 className="mt-2 font-display text-2xl font-bold tracking-tight sm:text-3xl">
             Important Points
           </h2>
-          <ul className="mt-10 max-w-3xl space-y-5">
+          <ul className="mt-10 grid max-w-4xl gap-4 sm:grid-cols-2">
             {points.map((point) => (
               <li
                 key={point}
-                className="flex gap-4 text-base leading-relaxed text-forest-100 sm:text-lg"
+                className="surface-3d-dark flex gap-4 rounded-xl p-5 text-base leading-relaxed text-forest-100 sm:text-lg"
               >
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sun-400" />
                 {point}
               </li>
             ))}
           </ul>
-          <div className="mt-12 flex flex-col gap-4 border-t border-forest-800 pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="surface-3d-dark mt-12 flex flex-col gap-5 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <p className="text-lg text-white">Want to know your exact subsidy?</p>
             <LinkButton
               href={site.whatsapp.href}

@@ -4,6 +4,10 @@ import { CtaBand, PageHero, Section, SectionHeading } from '@/components/ui/Page
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 import { freeServices, site } from '@/data/site'
 
+const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
+  site.address,
+)}&z=16&output=embed`
+
 export function ContactPage() {
   useDocumentTitle(`Contact Us — ${site.name}`)
   const [submitted, setSubmitted] = useState(false)
@@ -44,17 +48,17 @@ export function ContactPage() {
         description="Book a free site visit, get a quotation, or ask about subsidy and net metering. We serve six districts across Vidarbha."
       />
 
-      <Section>
+      <Section className="section-glow">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-          <div>
+          <div className="surface-3d rounded-2xl p-6 sm:p-8">
             <SectionHeading
               eyebrow="Reach us"
               title={site.name}
               description={site.fullName}
             />
 
-            <dl className="mt-8 space-y-6">
-              <div>
+            <dl className="mt-8 divide-y divide-line">
+              <div className="interactive-row-3d px-2 py-5">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Address
                 </dt>
@@ -63,12 +67,19 @@ export function ContactPage() {
                   href={site.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-sm font-semibold text-sun-600 hover:text-sun-500"
+                  className="button-3d mt-4 inline-flex items-center gap-3 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-semibold text-sun-600 hover:border-sun-500/40 hover:text-sun-500"
                 >
-                  Open in Google Maps →
+                  <img
+                    src="/google-maps-icon.png"
+                    alt=""
+                    className="h-7 w-7 object-contain"
+                    aria-hidden
+                  />
+                  <span>Open in Google Maps</span>
+                  <span aria-hidden>→</span>
                 </a>
               </div>
-              <div>
+              <div className="interactive-row-3d px-2 py-5">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Phone
                 </dt>
@@ -84,7 +95,7 @@ export function ContactPage() {
                   ))}
                 </dd>
               </div>
-              <div>
+              <div className="interactive-row-3d px-2 py-5">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   WhatsApp
                 </dt>
@@ -99,7 +110,7 @@ export function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div>
+              <div className="interactive-row-3d px-2 py-5">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Email
                 </dt>
@@ -112,7 +123,7 @@ export function ContactPage() {
                   </a>
                 </dd>
               </div>
-              <div>
+              <div className="interactive-row-3d px-2 py-5">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   Service Areas
                 </dt>
@@ -120,7 +131,7 @@ export function ContactPage() {
                   {site.serviceAreas.join(' · ')}
                 </dd>
               </div>
-              <div className="flex gap-4 pt-2">
+              <div className="flex gap-4 px-2 pt-5">
                 <a
                   href={site.social.facebook}
                   target="_blank"
@@ -161,7 +172,7 @@ export function ContactPage() {
             </ul>
           </div>
 
-          <div className="rounded-xl border border-line bg-white p-6 sm:p-8">
+          <div className="surface-3d rounded-2xl p-6 sm:p-8">
             <h2 className="font-display text-2xl font-bold text-forest-950">
               Get Free Quote
             </h2>
@@ -214,7 +225,7 @@ export function ContactPage() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full rounded-md border border-line bg-paper px-3.5 py-2.5 text-sm text-forest-900 outline-none transition-colors placeholder:text-muted focus:border-forest-400 focus:ring-2 focus:ring-forest-200"
+                  className="input-3d w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-sm text-forest-900 outline-none placeholder:text-muted focus:border-forest-400"
                   placeholder="Tell us about your rooftop or questions…"
                 />
               </div>
@@ -226,27 +237,42 @@ export function ContactPage() {
         </div>
       </Section>
 
-      <section className="border-t border-line bg-forest-50/50">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          <p className="mb-4 text-sm font-semibold text-forest-900">Find us on the map</p>
-          <a
-            href={site.mapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-xl"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=80"
-              alt="Map placeholder — open location in Google Maps"
-              className="aspect-[21/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+      <section className="section-glow border-t border-line bg-forest-50/50">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+          <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-sun-600">
+                <span className="h-px w-6 bg-sun-500" aria-hidden />
+                Our location
+              </p>
+              <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-forest-950 sm:text-3xl">
+                Find us on Google Maps
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                {site.address}
+              </p>
+            </div>
+            <LinkButton
+              href={site.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="sun"
+              className="shrink-0"
+            >
+              Get Directions ↗
+            </LinkButton>
+          </div>
+
+          <div className="media-frame-3d overflow-hidden rounded-2xl bg-forest-100">
+            <iframe
+              src={MAP_EMBED_URL}
+              title={`${site.name} location on Google Maps`}
+              className="h-[360px] w-full border-0 sm:h-[440px]"
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
-            <span className="absolute inset-0 flex items-end bg-gradient-to-t from-forest-950/70 to-transparent p-6">
-              <span className="rounded-md bg-sun-500 px-4 py-2 text-sm font-semibold text-forest-950">
-                Open Google Map
-              </span>
-            </span>
-          </a>
+          </div>
         </div>
       </section>
 
@@ -289,7 +315,7 @@ function Field({
         pattern={pattern}
         min={min}
         placeholder={placeholder}
-        className="w-full rounded-md border border-line bg-paper px-3.5 py-2.5 text-sm text-forest-900 outline-none transition-colors placeholder:text-muted focus:border-forest-400 focus:ring-2 focus:ring-forest-200"
+        className="input-3d w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-sm text-forest-900 outline-none placeholder:text-muted focus:border-forest-400"
       />
     </div>
   )

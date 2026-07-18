@@ -13,9 +13,9 @@ export function ProductsPage() {
         description="We supply and install Made-in-India solar panels from leading manufacturers — with clear warranty terms on every quotation."
       />
 
-      <Section>
+      <Section className="section-glow">
         <div className="grid gap-14 lg:grid-cols-2">
-          <div>
+          <div className="surface-3d rounded-2xl p-6 sm:p-8">
             <SectionHeading
               eyebrow="Solar panels"
               title="Indian-made panels"
@@ -23,11 +23,9 @@ export function ProductsPage() {
             />
             <ul className="mt-8 divide-y divide-line border-y border-line">
               {panelBrands.map((brand) => (
-                <li
-                  key={brand}
-                  className="py-4 font-display text-xl font-semibold text-forest-900"
-                >
-                  {brand}
+                <li key={brand} className="interactive-row-3d flex items-center gap-3 px-3 py-4 font-display text-xl font-semibold text-forest-900">
+                  <span className="h-2 w-2 rounded-full bg-sun-500 shadow-[0_0_0_5px_rgba(224,155,18,0.12)]" />
+                  <span>{brand}</span>
                 </li>
               ))}
             </ul>
@@ -35,11 +33,11 @@ export function ProductsPage() {
               Brand list to be confirmed by client before final publishing.
             </p>
           </div>
-          <div className="overflow-hidden rounded-xl">
+          <div className="media-frame-3d overflow-hidden rounded-2xl">
             <img
               src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80"
               alt="Close-up of solar panel modules"
-              className="h-full min-h-[280px] w-full object-cover"
+              className="h-full min-h-[280px] w-full object-cover transition-transform duration-700 hover:scale-105"
               loading="lazy"
             />
           </div>
@@ -48,7 +46,7 @@ export function ProductsPage() {
 
       <Section className="bg-forest-50/80">
         <div className="grid gap-12 sm:grid-cols-2">
-          <div>
+          <div className="surface-3d rounded-2xl p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Inverters
             </p>
@@ -61,7 +59,7 @@ export function ProductsPage() {
               and system size.
             </p>
           </div>
-          <div>
+          <div className="surface-3d rounded-2xl p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sun-600">
               Batteries
             </p>
@@ -78,16 +76,16 @@ export function ProductsPage() {
 
       <Section>
         <SectionHeading eyebrow="Warranty" title="What you receive" />
-        <ul className="mt-8 max-w-2xl space-y-4 text-base text-forest-900 sm:text-lg">
-          <li className="flex gap-3">
+        <ul className="mt-8 grid max-w-4xl gap-4 text-base text-forest-900 sm:text-lg">
+          <li className="surface-3d flex gap-3 rounded-xl p-5">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
             Solar panel and inverter warranty as per company policy
           </li>
-          <li className="flex gap-3">
+          <li className="surface-3d flex gap-3 rounded-xl p-5">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
             Installation workmanship as per MNRE guidelines
           </li>
-          <li className="flex gap-3">
+          <li className="surface-3d flex gap-3 rounded-xl p-5">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sun-500" />
             Full warranty details are given with your quotation
           </li>
